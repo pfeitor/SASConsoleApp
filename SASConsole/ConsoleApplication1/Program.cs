@@ -44,7 +44,7 @@ namespace ConsoleApplication1
 
             // when code is complete, check error/warning
             bool hasErrors = false, hasWarnings = false;
-            
+            StringBuilder log = new StringBuilder();
             Array carriage, lineTypes, lines;
             do
             {
@@ -67,9 +67,15 @@ namespace ConsoleApplication1
                         default:
                             break;
                     }
+                  log.Append(string.Format("{0}{1}", lines.GetValue(i) as string, Environment.NewLine));
                   }
                 }
             while (lines != null && lines.Length > 0);
+
+            using (StreamWriter outfile = new StreamWriter("log.txt"))
+            {
+                outfile.Write(log.ToString());
+            }
 
             if (hasWarnings && hasErrors)
             { Console.WriteLine("Program complete - has ERRORS and WARNINGS"); exitcode = 4; }
