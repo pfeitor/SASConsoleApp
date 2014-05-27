@@ -18,7 +18,7 @@ namespace ConsoleApplication1
             //string code = ReadFileFromAssembly("");
 
             string path = args[0];
-            string readCode = "proc setinit; run;";
+            string readCode = "%put &sasworklocation;";
 
             // This text is added only once to the file. 
             if (File.Exists(path))
