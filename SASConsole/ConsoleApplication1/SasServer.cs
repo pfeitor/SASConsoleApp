@@ -124,6 +124,15 @@ namespace ConsoleApplication1
 
                 objectKeeper.AddObject(1, Name, _workspace);
 
+                // // Connect using COM protocol, locally installed SAS only
+                // SASObjectManager.IObjectFactory2 obObjectFactory = new SASObjectManager.ObjectFactoryMulti2();
+                // SASObjectManager.ServerDef obServer = new SASObjectManager.ServerDef();
+                // obServer.MachineDNSName = "localhost";
+                // obServer.Protocol = SASObjectManager.Protocols.ProtocolCom;
+                // obServer.Port = 0;
+                // _workspace = (SAS.Workspace)obObjectFactory.CreateObjectByServer(Name, true, obServer, null, null);
+
+                // objectKeeper.AddObject(1, Name, _workspace);
            
         }
 
