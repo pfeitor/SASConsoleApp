@@ -77,14 +77,14 @@ namespace ConsoleApplication1
                 outfile.Write(log.ToString());
             }
 
-            if (hasWarnings && hasErrors)
-            { Console.WriteLine("Program complete - has ERRORS and WARNINGS"); exitcode = 4; }
-            else if (hasErrors)
+            if (hasErrors)
             { Console.WriteLine("Program complete - has ERRORS"); exitcode = 4; }
-            else if (hasWarnings)
-            { Console.WriteLine("Program complete - has WARNINGS"); exitcode = 0; }
+            else if (!File.Exists(path))
+            { Console.WriteLine("SAS code not available"); exitcode = 4; }
+            // else if (hasWarnings)
+            // { Console.WriteLine("Program complete - has WARNINGS"); exitcode = 0; }
             else
-            { Console.WriteLine("Program complete - no warnings or errors!"); exitcode = 0; }
+            { Console.WriteLine("Program complete - no ERRORS!"); exitcode = 0; }
 
             return exitcode;
 
